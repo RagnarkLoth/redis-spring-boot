@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.entitys.UsuarioEntity;
 import com.example.demo.models.UsuarioModel;
 import com.example.demo.service.UsuarioService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
+@Log4j2
 public class UsuarioRestController {
 
     @Autowired
@@ -20,6 +22,7 @@ public class UsuarioRestController {
     @PostMapping("/crear")
     public ResponseEntity<UsuarioModel> crearUsuario(@RequestBody UsuarioEntity usuarioEntity){
 
+        log.warn(usuarioEntity.getCarroFk().getIdCarro());
         return ResponseEntity.ok(usuarioService.crearUsuario(usuarioEntity));
     }
 
@@ -37,9 +40,9 @@ public class UsuarioRestController {
 
     }
 
-    @GetMapping("/listar/{id}")
-    public ResponseEntity<UsuarioModel> listarUsuarioId(@PathVariable Long id){
-        return ResponseEntity.ok(usuarioService.listarUsuaiorId(id));
+    @GetMapping("/listar/{nombre}")
+    public ResponseEntity<UsuarioModel> listarUsuarioId(@PathVariable String nombre){
+        return ResponseEntity.ok(usuarioService.listarUsuaiorId(nombre));
     }
 
     @DeleteMapping("/eliminar/{id}")

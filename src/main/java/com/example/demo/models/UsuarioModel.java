@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.entitys.CarroEntity;
 import com.example.demo.entitys.UsuarioEntity;
 import lombok.Data;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class UsuarioModel implements Serializable {
         this.nombreUsuario = usuarioEntity.getNombreUsuario();
         this.edadUsuario = usuarioEntity.getEdadUsuario();
         this.numeroTelefono = usuarioEntity.getNumeroTelefono();
+        this.carroFk = usuarioEntity.getCarroFk();
 
     }
 
@@ -32,5 +34,7 @@ public class UsuarioModel implements Serializable {
     private Integer edadUsuario;
 
     private String numeroTelefono;
+
+    private CarroEntity carroFk;
 
 }

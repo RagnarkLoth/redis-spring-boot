@@ -8,13 +8,14 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 
 //@Configuration
 public class RedisConfig {
-/*
+
     //FABRICA DE CONEXIONES DE REDIS PARA CONECTAR AL SERVIDOR DEL REDIS
+  /*
      @Bean
     public LettuceConnectionFactory redisConnectionFactory(){
 
          return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
 
      }
-*/
+ */
 }
